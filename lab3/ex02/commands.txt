@@ -1,0 +1,2 @@
+ros2 run action_turtle_commands action_turtle_server
+ros2 run action_turtle_commands action_turtle_client
