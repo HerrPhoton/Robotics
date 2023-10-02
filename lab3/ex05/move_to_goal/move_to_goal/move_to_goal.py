@@ -41,26 +41,12 @@ class Move2Goal(Node):
                        self.target_pos.x - self.start_pos.x)
         
         angle1 -= self.start_pos.theta
+        angle1  = self.scaling_angle(angle1)
 
-        if angle1 > pi:
-            angle1 -= 2 * pi
-        if angle1 < -pi:
-            angle1 += 2 * pi
-
-        distance = sqrt((self.target_pos.y - self.start_pos.y) ** 2 +
-                        (self.target_pos.x - self.start_pos.x) ** 2)
+        distance = self.get_distance()
         
         angle2 = self.target_pos.theta - self.start_pos.theta - angle1
-
-        if angle2 > pi:
-            angle2 -= 2 * pi
-        if angle2 < -pi:
-            angle2 += 2 * pi
-
-        # if angle2 > pi:
-        #     angle2 -= 2 * pi
-        # if angle2 < -pi:
-        #     angle2 += 2 * pi
+        angle2 = self.scaling_angle(angle2)
 
         twists = [Twist(angular = Vector3(z = angle1)), 
                   Twist(linear  = Vector3(x = distance)),
@@ -70,9 +56,21 @@ class Move2Goal(Node):
             self.pub.publish(twist)
             time.sleep(1.0)
 
+    def get_distance(self):    
+        return sqrt((self.target_pos.y - self.start_pos.y) ** 2 +
+                    (self.target_pos.x - self.start_pos.x) ** 2)
+
+    def scaling_angle(self, angle):
+
+        if angle > pi:
+            angle -= 2 * pi
+        if angle < -pi:
+            angle += 2 * pi
+
+        return angle
+
     def to_rads(self, angle):
         return angle * pi / 180
-
 
 
 def main():
