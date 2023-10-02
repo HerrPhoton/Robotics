@@ -1,0 +1,1 @@
+ros2 run move_to_goal move_to_goal x y theta

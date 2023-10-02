@@ -38,13 +38,6 @@ class TurtleSimActionServer(Node):
     def pose_callback(self, data):
         pass
 
-    def calculate_distance(self, point1, point2):
-
-        self.get_logger().info(f'{point1}, {point2}')
-
-        return sqrt((point1.x - point2.x) ** 2 + \
-                    (point1.y - point2.y) ** 2)
-
     def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
 

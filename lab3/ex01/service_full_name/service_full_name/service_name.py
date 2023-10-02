@@ -17,10 +17,8 @@ class Service(Node):
             request.name, 
             request.first_name])
         
-        self.get_logger().info(f'Incoming request: \
-                               last_name: {request.last_name}, \
-                               name: {request.name}, \
-                               first_name: {request.first_name}')
+        self.get_logger().info(
+            f'\nIncoming request:\nlast_name: {request.last_name},\nname: {request.name},\nfirst_name: {request.first_name}')
 
         return response
 
