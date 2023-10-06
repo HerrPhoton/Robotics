@@ -30,10 +30,7 @@ class TurtleSimActionClient(Node):
 
         self._action_client.wait_for_server()
 
-        self.get_logger().info(f'Sending goal: \
-                               command: {goal_msg.command} \
-                               s: {goal_msg.s} \
-                               angle: {goal_msg.angle}')
+        self.get_logger().info(f'\nSending goal:\ncommand: {goal_msg.command}\ns: {goal_msg.s}\nangle: {goal_msg.angle}')
 
         return self._action_client.send_goal_async(goal_msg, self.feedback_callback)
     

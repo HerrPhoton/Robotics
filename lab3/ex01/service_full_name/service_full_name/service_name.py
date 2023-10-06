@@ -26,9 +26,8 @@ class Service(Node):
 def main():
     rclpy.init()
 
-    minimal_service = Service()
-
-    rclpy.spin(minimal_service)
+    service = Service()
+    rclpy.spin(service)
 
     rclpy.shutdown()
 
