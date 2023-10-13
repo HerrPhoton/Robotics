@@ -1,0 +1,3 @@
+ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py
+ros2 run tf2_tools view_frames > frames.pdf
+ros2 run tf2_ros tf2_echo turtle1 turtle2 > transform.txt

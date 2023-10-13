@@ -1,0 +1,2 @@
+ros2 launch tf2_carrot tf2_carrot.launch.py radius:=3.0 direction_of_rotation:=-1
+ros2 rviz2 rviz2
