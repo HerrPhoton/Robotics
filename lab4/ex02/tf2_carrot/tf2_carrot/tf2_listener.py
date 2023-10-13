@@ -44,8 +44,7 @@ class FrameListener(Node):
                     t = self.tf_buffer.lookup_transform(
                         to_frame_rel,
                         from_frame_rel,
-                        self.get_clock().now() - rclpy.time.Duration(seconds = 5.0),
-                        timeout = rclpy.duration.Duration(seconds = 0.05))
+                        rclpy.time.Time())
                     
                 except TransformException as ex:
                     self.get_logger().info(
@@ -78,7 +77,7 @@ class FrameListener(Node):
                 request = Spawn.Request()
                 request.name = 'turtle2'
                 request.x = 5.53
-                request.y = 2.0
+                request.y = 2.53
                 request.theta = 0.0
 
                 self.result = self.spawner.call_async(request)
